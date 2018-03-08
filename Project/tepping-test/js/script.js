@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $('.hide-start-button').click(function () {
         $('.hide-start-button').hide();
         $('#show-test').load('test.html .include-test',function () {
@@ -9,7 +10,7 @@ $(document).ready(function () {
              
              $('.modal-click-timer').click(function () {
                  $('.click-me').each(function (key,value) {
-                     console.log('Порядковый номер: ' + key + ' ; Содержимое: ' +$(value).text());
+                     $(value).attr('data-target','false');
                  })
 
 
@@ -32,6 +33,14 @@ $(document).ready(function () {
                 countInTab++;
                 CounterTimer();
             });
+            $('html').keyup(function (event) {
+                if (event.keyCode == 32){
+                    count++;
+                    countInTab++;
+                    CounterTimer();
+
+                }
+            })
             CounterTimer = function () {
                 $('.show-main').empty();
                 $('.show-main').text(count);
@@ -69,7 +78,6 @@ $(document).ready(function () {
             resultSum = 0;
             $('#result-alg').click(function () {
                 $('body').load('result.html .include-result-test',function () {
-                    alert();
 
                     for(var beg = 0; beg < sourceKey.length; beg++){
                         resultSum+= (sourceKey[beg] - sourceKey[0]);
@@ -136,6 +144,7 @@ $(document).ready(function () {
                             break;
 
                     }
+
 
                 });
             });
