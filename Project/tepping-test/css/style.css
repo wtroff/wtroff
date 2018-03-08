@@ -1,0 +1,23 @@
+.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.show-main{
+    font-size: 40px;
+}
+.timer-show{
+    font-size: 40px;
+}
+
+body {
+    padding-top: 5rem;
+}
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+
+
