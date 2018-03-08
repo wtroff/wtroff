@@ -18,6 +18,33 @@ body {
     padding: 3rem 1.5rem;
     text-align: center;
 }
+text {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    fill: none;
+    stroke-width: 1.5px;
+}
+
+.label {
+    text-anchor: middle;
+}
+
+.label rect {
+    fill: white;
+}
+
+.label-key {
+    font-weight: bold;
+}
 
 
 
