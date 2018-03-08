@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     $('.hide-start-button').click(function () {
         $('.hide-start-button').hide();
         $('#show-test').load('test.html .include-test',function () {
@@ -9,19 +8,25 @@ $(document).ready(function () {
              index = 0;
              
              $('.modal-click-timer').click(function () {
-                 $('.click-me').attr('data-target', 'false');
+                 $('.click-me').each(function (key,value) {
+                     console.log('Порядковый номер: ' + key + ' ; Содержимое: ' +$(value).text());
+                 })
+
+
              });
 
             $('.click-me').click(function () {
-
                 if($('.click-me').attr('data-target') == '#exampleModal') return;
                 if(count == 0) {
                     $('.show-main').show();
                     $('.show-main-button').hide();
                     $('.add-count').empty();
-                    for(var x = 0; x< sourceKey.length; x++){
-                        delete sourceKey[x];
-                    }
+                    // for(var x = 0; x< sourceKey.length; x++){
+                    //     delete sourceKey[x];
+                    // }
+                    $.each(sourceKey,function (key,value) {
+                        delete sourceKey[key];
+                    })
                 }
                 count++;
                 countInTab++;
@@ -71,7 +76,7 @@ $(document).ready(function () {
                     }
                     var plus = 1.2;
                     var Equal = Math.abs(resultSum);
-                    for(var num = 0, sizeTab = 0; num <26; ++num, sizeTab+=plus){
+                    for(var num = 0, sizeTab = 0; num < 26; ++num, sizeTab+=plus){
                         if((sizeTab - plus <= Equal)&&(sizeTab > Equal)) {
                             Equal = Math.floor(num/5);
 
@@ -130,9 +135,7 @@ $(document).ready(function () {
                             $('.show-result').append("Очень слабая нервная система</br>Ваш КСНС " + resultSum );
                             break;
 
-
                     }
-
 
                 });
             });
